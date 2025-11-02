@@ -71,12 +71,13 @@ class WebSocketClient(private val url: String) {
     
     /**
      * Schedule reconnection with exponential backoff
+     * Note: In production, inject a CoroutineScope for better lifecycle management
      */
     private fun scheduleReconnect() {
         reconnectAttempts++
         val delayMs = (1000L * reconnectAttempts).coerceAtMost(30000L)
         
-        // Schedule reconnect (in a real app, use proper coroutine scope)
+        // TODO: Use proper CoroutineScope injection for lifecycle-aware reconnection
         Thread {
             Thread.sleep(delayMs)
             if (shouldReconnect && !isConnected) {

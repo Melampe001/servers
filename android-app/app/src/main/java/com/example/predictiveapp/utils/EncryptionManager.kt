@@ -80,6 +80,9 @@ class EncryptionManager {
      * @return Decrypted plaintext
      */
     fun decrypt(encryptedData: ByteArray): ByteArray {
+        if (encryptedData.size < IV_SIZE) {
+            throw IllegalArgumentException("Invalid encrypted data size")
+        }
         val iv = encryptedData.take(IV_SIZE).toByteArray()
         val ciphertext = encryptedData.drop(IV_SIZE).toByteArray()
         
