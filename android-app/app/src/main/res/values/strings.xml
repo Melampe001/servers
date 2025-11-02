@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Predictive Analytics</string>
+    <string name="histogram_title">Data Histogram</string>
+    <string name="analysis_title">Statistical Analysis</string>
+    <string name="export_data">Export Data</string>
+    <string name="import_data">Import Data</string>
+</resources>
