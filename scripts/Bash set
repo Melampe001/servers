@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+
+ALLOWED=(
+flutter_riverpod
+shared_preferences
+path_provider
+)
+
+for dep in $(grep -E "^[a-zA-Z_]+:" pubspec.yaml | cut -d: -f1); do
+  [[ "$dep" == "flutter" ]] && continue
+  [[ "$dep" == "sdk" ]] && continue
+  [[ " ${ALLOWED[@]} " =~ " ${dep} " ]] || exit 1
+done
