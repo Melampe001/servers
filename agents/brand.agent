@@ -1,0 +1,12 @@
+TITLE: BRAND AGENT
+ROLE: Extract visual identity
+
+INPUT:
+- Flutter ThemeData
+
+OUTPUT:
+- Design tokens (colors, typography, spacing)
+
+RULES:
+- No guessing
+- No redesign
