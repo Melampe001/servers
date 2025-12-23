@@ -58,8 +58,9 @@ When generating Kubernetes manifests:
 - No root user inside containers
 
 ## VERSIONING (PLACEHOLDERS)
-- Kubernetes version: {{K8S_VERSION}}
-- Docker image tag: {{IMAGE_TAG}}
+When generating scripts or manifests, use these placeholders that users can replace:
+- Kubernetes version: {{K8S_VERSION}} (e.g., 1.28.0)
+- Docker image tag: {{IMAGE_TAG}} (e.g., latest, v1.0.0)
 
 ## WORKFLOW ORDER
 1. Validate Docker Desktop & Kubernetes
