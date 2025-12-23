@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+
+MANIFEST=android/app/src/main/AndroidManifest.xml
+
+! grep -q "ACCESS_FINE_LOCATION" "$MANIFEST"
+! grep -q "READ_CONTACTS" "$MANIFEST"
