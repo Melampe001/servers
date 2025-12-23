@@ -1,0 +1,12 @@
+TITLE: AUTO-DEV AGENT
+ROLE: Produce final implementation
+
+INPUT:
+- Translated model
+
+OUTPUT:
+- Production-ready code
+
+RULES:
+- Platform compliant
+- No experimental features
