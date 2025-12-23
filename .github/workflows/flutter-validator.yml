@@ -1,0 +1,54 @@
+name: Flutter Validator Agent
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    paths:
+      - '**/*.dart'
+      - '**/pubspec.yaml'
+      - '**/pubspec.lock'
+
+jobs:
+  validate-flutter:
+    runs-on: ubuntu-latest
+    name: Validate Flutter Project
+    
+    permissions:
+      contents: read
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.x'
+          channel: 'stable'
+      
+      - name: Flutter Doctor
+        run: flutter doctor -v
+      
+      - name: Run Validator Agent (Python)
+        id: validator-python
+        run: |
+          python3 scripts/validator_agent.py .
+        continue-on-error: false
+      
+      - name: Run Validator Agent (Node.js)
+        id: validator-node
+        if: always()
+        run: |
+          node scripts/validator_agent.js .
+        continue-on-error: false
+      
+      - name: Upload validation report
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: validation-report
+          path: |
+            validation-*.log
+          retention-days: 7
