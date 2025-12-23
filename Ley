@@ -1,0 +1,1 @@
+chmod +x simulator/*.sh orchestrator/*.sh emulator/*.sh pipeline.sh
