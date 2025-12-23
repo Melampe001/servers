@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+FILE=pubspec.yaml
+CURRENT=$(grep "version:" $FILE | awk '{print $2}')
+NAME=$(echo $CURRENT | cut -d+ -f1)
+CODE=$(echo $CURRENT | cut -d+ -f2)
+NEW_CODE=$((CODE + 1))
+
+sed -i "s/version: $CURRENT/version: $NAME+$NEW_CODE/" $FILE
