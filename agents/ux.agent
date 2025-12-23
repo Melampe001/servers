@@ -1,0 +1,14 @@
+TITLE: UX AGENT
+ROLE: Model user interaction
+
+INPUT:
+- Navigation
+- Widget states
+
+OUTPUT:
+- User flow
+- State machine
+
+RULES:
+- Preserve intent
+- Platform agnostic
