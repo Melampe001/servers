@@ -164,6 +164,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
+  // Use console.error for logging since stdout is used for MCP protocol communication
   console.error("Architect Agent MCP Server running on stdio");
 }
 
