@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+./scripts/00_init_project.sh
+./scripts/01_validate_architecture.sh
+./scripts/02_validate_dependencies.sh
+./scripts/03_static_analysis.sh
+./scripts/04_security_check.sh
+./scripts/05_optimization.sh
+./scripts/06_versioning.sh
+./scripts/07_build_release.sh
