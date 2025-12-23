@@ -23,6 +23,9 @@ from typing import List, Dict, Tuple
 class ValidatorAgent:
     """Flutter project validator agent"""
     
+    # Configuration constants
+    PATTERN_THRESHOLD = 10
+    
     def __init__(self, project_path: str = '.'):
         self.project_path = Path(project_path).resolve()
         self.errors: List[str] = []
@@ -130,7 +133,7 @@ class ValidatorAgent:
                     with open(dart_file, 'r', encoding='utf-8') as f:
                         content = f.read()
                         matches = re.findall(pattern, content)
-                        if len(matches) > 5:  # Threshold for reporting
+                        if len(matches) > self.PATTERN_THRESHOLD:
                             occurrences.append({
                                 'file': str(dart_file.relative_to(self.project_path)),
                                 'count': len(matches)

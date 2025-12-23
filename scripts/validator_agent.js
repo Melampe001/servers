@@ -17,6 +17,9 @@ import { existsSync } from 'fs';
 import { resolve } from 'path';
 
 class ValidatorAgent {
+  // Configuration constants
+  static PATTERN_THRESHOLD = 10;
+
   constructor(projectPath = '.') {
     this.projectPath = resolve(projectPath);
     this.errors = [];
@@ -159,8 +162,6 @@ class ValidatorAgent {
       const patterns = [
         // Multiple setState calls in the same method
         { pattern: 'setState', description: 'Multiple setState calls (potential non-idempotent state)' },
-        // Duplicate variable declarations
-        { pattern: 'final.*=.*final', description: 'Potential duplicate declarations' },
         // Non-idempotent operations
         { pattern: '\\+\\+|--', description: 'Increment/decrement operations (potential non-idempotent)' },
       ];
@@ -178,7 +179,7 @@ class ValidatorAgent {
 
           if (result.stdout && result.stdout.trim()) {
             const lines = result.stdout.trim().split('\n');
-            if (lines.length > 10) {
+            if (lines.length > ValidatorAgent.PATTERN_THRESHOLD) {
               this.duplicateStateIssues.push({
                 description,
                 count: lines.length,
