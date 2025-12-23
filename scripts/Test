@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+test -d lib/core
+test -d lib/data
+test -d lib/domain
+test -d lib/presentation
