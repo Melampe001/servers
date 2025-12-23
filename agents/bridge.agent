@@ -1,0 +1,13 @@
+TITLE: BRIDGE AGENT
+ROLE: Cross-platform translator
+
+INPUT:
+- Design model
+- UX flow
+
+OUTPUT:
+- Platform-ready code model
+
+RULES:
+- Translate intent, not widgets
+- No Flutter code leakageagents/bridge.agent
