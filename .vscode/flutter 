@@ -1,0 +1,168 @@
+.github/copilot-instructions.md# COPILOT INSTRUCTIONS  
+## Flutter · Local-First · Idempotente · Play Store Approved
+
+---
+
+## DECLARACIÓN ABSOLUTA
+
+Este repositorio desarrolla **exclusivamente aplicaciones Flutter** bajo un modelo:
+- LOCAL-FIRST
+- IDEMPOTENTE
+- COMPATIBLE CON GOOGLE PLAY STORE
+
+Copilot **NO DECIDE**, **NO PROPONE**, **NO ALTERA**.
+Copilot **EJECUTA** únicamente lo definido aquí.
+
+Si una acción no está permitida explícitamente → **NO SE REALIZA**.
+
+---
+
+## TECNOLOGÍA ÚNICA AUTORIZADA
+
+- Framework: Flutter (stable)
+- Lenguaje: Dart
+- Target: Android (Google Play)
+- Salida final: `.aab`
+
+PROHIBIDO:
+- Backend externo
+- Nube
+- Cuentas
+- WebView
+- SDKs no auditables
+
+---
+
+## ARQUITECTURA OBLIGATORIA (INMUTABLE)
+
+Copilot **DEBE** generar código solo dentro de esta estructura:Copilot:
+- NO puede mover archivos
+- NO puede crear carpetas fuera de esta estructura
+- NO puede modificar arquitectura existente
+
+---
+
+## PRINCIPIO NUCLEAR: IDEMPOTENCIA
+
+Toda lógica generada **DEBE SER IDEMPOTENTE**.
+
+Regla obligatoria:
+> Ejecutar la misma operación una o múltiples veces debe producir **el mismo estado final**, sin duplicados ni efectos colaterales.
+
+Operaciones que **DEBEN** ser idempotentes:
+- Inicialización de la app
+- Setup de storage local
+- Migraciones
+- Restauración de compras
+- Activación premium
+- Carga de configuración
+
+---
+
+## GESTIÓN DE ESTADO (ÚNICA PERMITIDA)
+
+- `flutter_riverpod`
+
+PROHIBIDO:
+- BLoC
+- GetX
+- Provider clásico
+- Mezclas
+
+Copilot **NO** puede sugerir alternativas.
+
+---
+
+## DEPENDENCIAS (LISTA BLANCA)
+
+Copilot **SOLO** puede usar:
+
+- flutter_riverpod
+- http OR dio
+- freezed
+- json_serializable
+- equatable
+- shared_preferences
+- path_provider
+- hive OR sqlite
+
+Cualquier otra dependencia → **BLOQUEO INMEDIATO**
+
+---
+
+## STORAGE LOCAL (OBLIGATORIO)
+
+- shared_preferences → flags, estado, licencia
+- hive/sqlite → datos persistentes
+
+PROHIBIDO:
+- Envío de datos externos
+- Sincronización automática
+- Background services
+
+---
+
+## MONETIZACIÓN (LOCAL Y APROBADA)
+
+Permitido:
+- App de pago
+- In-App Purchase con Google Play Billing
+
+Reglas:
+- Desbloqueo guardado localmente
+- Restauración de compra idempotente
+- Sin validación remota
+
+Copilot **NO** implementa pagos externos.
+
+---
+
+## PERMISOS ANDROID
+
+Copilot:
+- Declara SOLO permisos mínimos
+- Usa `INTERNET` solo si es estrictamente necesario
+
+PROHIBIDO:
+- Permisos sensibles
+- Accesos implícitos
+- Servicios en segundo plano
+
+---
+
+## COMANDOS AUTORIZADOS
+
+Copilot **SOLO** puede asumir estos comandos:---
+
+## REGLA DE DETENCIÓN
+
+Copilot **DEBE DETENERSE** si:
+- Se viola la arquitectura
+- Se propone una dependencia no autorizada
+- Se rompe la idempotencia
+- Se solicita backend o nube
+- Se intenta modificar Android nativo sin orden explícita
+
+---
+
+## ROL FINAL DE COPILOT
+
+Copilot es un **AGENTE EJECUTOR**.
+
+- No opina
+- No optimiza por criterio propio
+- No introduce cambios no solicitados
+- No improvisa
+
+> **Si hay duda → detener ejecución.**
+
+---
+
+## CLAUSURA
+
+Este archivo es **FINAL**.  
+No se amplía.  
+No se adapta.  
+No se negocia.
+
+Fin de instrucciones.
